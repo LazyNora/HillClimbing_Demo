@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>N-Queens</title>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+			}
+			.container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				width: 100%;
+				flex-direction: row;
+			}
+			.container > div {
+				margin: 1rem;
+				flex: 1;
+			}
+			.navigator {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				margin-block: 1rem;
+				gap: 1rem;
+			}
+			.stepcontrol {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.btn {
+				background-color: #4caf50;
+				border: none;
+				border-radius: 0.25rem;
+				color: white;
+				padding: 0.5rem 1rem;
+				cursor: pointer;
+			}
+			.btn:hover {
+				background-color: #45a049;
+			}
+			.input {
+				padding: 0.5rem;
+				border-radius: 0.25rem;
+				border: 1px solid #ccc;
+				margin-right: 0.5rem;
+			}
+			.input:focus {
+				outline: none;
+				border-color: #4caf50;
+			}
+			.input[type="range"] {
+				width: 150px;
+			}
+			#gridContainer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navigator">
+			<div>
+				<input
+					class="input"
+					type="number"
+					name="gridSize"
+					id="gridSize"
+					value="8"
+					placeholder="Enter grid size" />
+				<button class="btn" id="generateGrid">Generate Grid</button>
+			</div>
+			<div class="stepcontrol">
+				<button class="btn" id="prev">&lt</button>
+				<button class="btn" id="play">&#9658;</button>
+				<button class="btn" id="next">&gt</button>
+				<label for="speed">Speed</label>
+				<input class="input" type="range" id="speed" min="1" max="100" value="50" />
+				<button class="btn" id="reset">Reset</button>
+			</div>
+		</div>
+		<div class="container">
+			<div id="gridContainer"></div>
+			<div id="logContainer">
+				<h1>LOG</h1>
+				<pre id="log"></pre>
+			</div>
+		</div>
+		<script src="./index.js"></script>
+	</body>
+</html>
